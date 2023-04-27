@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/search/search",
+    "pages/service/service",
+    "pages/com/com",
+    "pages/log/log"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2b4b6b",
+    "navigationBarTitleText": "BLE蓝牙助手",
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 0
+  },
+  "tabBar": {
+    "color": "white",
+    "selectedColor": "#2b4b6b",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/search/search",
+        "text": "连接",
+        "iconPath": "images/wifi (1).png",
+        "selectedIconPath": "images/wifi.png"
+      },
+      {
+        "pagePath": "pages/log/log",
+        "text": "设备",
+        "iconPath": "images/123.png",
+        "selectedIconPath": "images/1234.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
