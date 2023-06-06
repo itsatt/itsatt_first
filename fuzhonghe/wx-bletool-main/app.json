@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/com/com",
+    "pages/search/search",
+    "pages/characteristic/characteristic",
+    "pages/service/service",
+    "pages/log/log"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#8c4799",
+    "navigationBarTitleText": "颈椎活动度测量仪",
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 0
+  },
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
+  },
+  
+  "tabBar": {
+    "color": "grey",
+    "selectedColor": "#2b4b6b",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/com/com",
+        "text": "测量",
+        "iconPath": "images/wifi (1).png",
+        "selectedIconPath": "images/wifi.png"
+      },
+      {
+        "pagePath": "pages/log/log",
+        "text": "更多",
+        "iconPath": "images/123.png",
+        "selectedIconPath": "images/1234.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
