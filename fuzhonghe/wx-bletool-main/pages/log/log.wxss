@@ -1,0 +1,22 @@
+.selector{
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  padding: 5px;
+  min-width: 30px;
+  text-align: center;
+}
+.date{
+  display: flex;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  width: 250rpx;
+  height: 140rpx;
+  border-radius: 20rpx;
+  box-shadow: #c4c4c4 0 0 10rpx;
+  margin-top: 62rpx;
+}
+.date-text{
+  font-size: 28rpx;
+  margin-top: 12rpx;
+}

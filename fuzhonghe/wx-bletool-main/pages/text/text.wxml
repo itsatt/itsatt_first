@@ -1,0 +1,105 @@
+<!--用户头像和昵称-->
+<view class="userInformation">
+  <view class="userInfomation-avatar">
+    <open-data type="userAvatarUrl" ></open-data>
+  </view>
+  <view class="userInformation-nickname">
+    <open-data type="userNickName"></open-data>
+  </view>
+</view>
+<!--间隔灰横条-->
+<view class="graydivide"></view>
+<!--支付-->
+<view class='function'>
+  <view style="width:100%">
+    <view class="functioninformation"><!--左边图片&文字-->
+      <view class="left-icon"><!--图片-->
+        <image class="icon-picture" src="/images/气血操.png"></image>
+      </view>
+      <view class="text">气血操</view><!--文字-->
+      <view class="right-icon"><!--图片-->
+        <image class="icon-picture" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--间隔灰横条-->
+<view class="graydivide"></view>
+<!--收藏-->
+<view class='function'>
+  <view style="width:100%">
+    <view class="functioninformation"><!--左边图片&文字-->
+      <view class="left-icon"><!--图片-->
+        <image class="icon-picture" src="/images/操作说明.png"></image>
+      </view>
+      <view class="text">操作说明</view><!--文字-->
+      <view class="right-icon"><!--图片-->
+        <image class="icon-picture" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--间隔白横线-->
+<view class="whitedivide"></view>
+<!--朋友圈-->
+<view class='function'>
+  <view style="width:100%">
+    <view class="functioninformation"><!--左边图片&文字-->
+      <view class="left-icon"><!--图片-->
+        <image class="icon-picture" src="/images/购买设备.png"></image>
+      </view>
+      <view class="text">购买设备</view><!--文字-->
+      <view class="right-icon"><!--图片-->
+        <image class="icon-picture" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--间隔白横线-->
+<view class="whitedivide"></view>
+<!--卡包-->
+<view class='function'>
+  <view style="width:100%">
+    <view class="functioninformation"><!--左边图片&文字-->
+      <view class="left-icon"><!--图片-->
+        <image class="icon-picture" src="/images/关于我们.png"></image>
+      </view>
+      <view class="text">关于我们</view><!--文字-->
+      <view class="right-icon"><!--图片-->
+        <image class="icon-picture" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--间隔白横线-->
+<view class="whitedivide"></view>
+<!--表情-->
+<view class='function'>
+  <view style="width:100%">
+    <view class="functioninformation"><!--左边图片&文字-->
+      <view class="left-icon"><!--图片-->
+        <image class="icon-picture" src="/images/活动打卡.png"></image>
+      </view>
+      <view class="text">活动打卡</view><!--文字-->
+      <view class="right-icon"><!--图片-->
+        <image class="icon-picture" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--间隔灰横条-->
+<view class="graydivide"></view>
+<!--设置-->
+<view class='function'>
+  <view style="width:100%">
+    <view class="functioninformation"><!--左边图片&文字-->
+      <view class="left-icon"><!--图片-->
+        <image class="icon-picture" src="/images/设置.png"></image>
+      </view>
+      <view class="text">设置</view><!--文字-->
+      <view class="right-icon"><!--图片-->
+        <image class="icon-picture" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

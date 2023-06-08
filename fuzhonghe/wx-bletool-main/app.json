@@ -4,11 +4,13 @@
     "pages/search/search",
     "pages/characteristic/characteristic",
     "pages/service/service",
-    "pages/log/log"
+    "pages/log/log",
+    "pages/text/text",
+    "pages/com/lishi/lishi"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#8c4799",
+    "navigationBarBackgroundColor": "#83c162",
     "navigationBarTitleText": "颈椎活动度测量仪",
     "navigationBarTextStyle": "white",
     "onReachBottomDistance": 0
@@ -17,22 +19,28 @@
     "van-popup": "@vant/weapp/popup/index"
   },
   
-  "tabBar": {
-    "color": "grey",
-    "selectedColor": "#2b4b6b",
+ "tabBar": {
+    "color": "#83c162",
+    "selectedColor": "#83c162",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/com/com",
         "text": "测量",
-        "iconPath": "images/wifi (1).png",
-        "selectedIconPath": "images/wifi.png"
-      },
+        "iconPath": "images/1.png",
+        "selectedIconPath": "images/1.png"
+      }, 
       {
         "pagePath": "pages/log/log",
+        "text": "评价",
+        "iconPath": "images/2.png",
+        "selectedIconPath": "images/2.png"
+      },
+      {
+        "pagePath": "pages/text/text",
         "text": "更多",
-        "iconPath": "images/123.png",
-        "selectedIconPath": "images/1234.png"
+        "iconPath": "images/3.png",
+        "selectedIconPath": "images/3.png"
       }
     ]
   },

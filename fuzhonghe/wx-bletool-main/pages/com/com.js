@@ -1,75 +1,11 @@
 // pages/com/com.js
-import * as echarts from '../../ec-canvas/echarts';
+var wxCharts = require("../../utils/wxcharts.js");//相对路径
 import {
   sdBLE
 } from "../../utils/sdBLE.js";
 const app = getApp();
 let sdBLEObj = new sdBLE();
 
-function initChart(canvas, width, height, dpr) {
-  const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
-    devicePixelRatio: dpr // new
-  });
-  canvas.setChart(chart);
-
-  var option = {
-    title: {
-      text: '测试下面legend的红色区域不应被裁剪',
-      left: 'center'
-    },
-    legend: {
-      data: ['A', 'B', 'C'],
-      top: 50,
-      left: 'center',
-      backgroundColor: 'red',
-      z: 100
-    },
-    grid: {
-      containLabel: true
-    },
-    tooltip: {
-      show: true,
-      trigger: 'axis'
-    },
-    xAxis: {
-      type: 'category',
-      boundaryGap: false,
-      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-      // show: false
-    },
-    yAxis: {
-      x: 'center',
-      type: 'value',
-      splitLine: {
-        lineStyle: {
-          type: 'dashed'
-        }
-      }
-      // show: false
-    },
-    series: [{
-      name: 'A',
-      type: 'line',
-      smooth: true,
-      data: [18, 36, 65, 30, 78, 40, 33]
-    }, {
-      name: 'B',
-      type: 'line',
-      smooth: true,
-      data: [12, 50, 51, 35, 70, 30, 20]
-    }, {
-      name: 'C',
-      type: 'line',
-      smooth: true,
-      data: [10, 30, 31, 50, 40, 20, 10]
-    }]
-  };
-
-  chart.setOption(option);
-  return chart;
-}
 
 Page({
 
@@ -77,10 +13,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ec: {
-      lazyLoad: true,
-      onInit: initChart
-    },
     receiverText: '',
     receiverLength: 0,
     sendText: '',
@@ -91,7 +23,8 @@ Page({
     devs: [],
     deviceId: null,
     deviceName: null,
-    serviceId: null
+    serviceId: null,
+    imageWidth:0
   },
   customData: {
     _devs: [],
@@ -158,30 +91,15 @@ Page({
     this.startGetServices()
   },
 
-  async startGetServices() {
-    let res = await sdBLEObj.getBLEDeviceServices(this.data.deviceId)
-    console.log("获取服务：", res)
-    this.customData.services = res.data
-    this.setData({
-      services: res.data,
-      firstServices: res.data[0]
-    })
-    console.log("所有服务:", this.data.services)
-    console.log("第一个服务:", this.data.services[0])
-    this.getCharacteristic()
-  },
-
   getCharacteristic() {
     console.log("获取特性")
     const deviceName = this.deviceName;
-    const services = this.customData.services;
-    const firstServiceId = services[0].uuid;
-    const secondServiceId = services[1].uuid; // 获取第二个服务的 uuid
+    const serviceId = this.data.firstServices.uuid;
     const deviceId = this.data.deviceId;
     this.setData({
-      serviceId: [firstServiceId, secondServiceId], // 同时使用第一个和第二个服务
+      serviceId
     })
-    this.startGetCharacteristics(deviceId, firstServiceId)
+    this.startGetCharacteristics(deviceId, serviceId)
   },
   async startGetCharacteristics(deviceId, serviceId) {
     console.log("deviceId:", deviceId)
@@ -189,7 +107,7 @@ Page({
     let res = await sdBLEObj.getBLEDeviceCharacteristics(deviceId, serviceId);
     this.setData({
       characteristic: res.data,
-      secondCharacteristic: res.data[0] // 保存第一个特性作为第二个服务的默认特性
+      secondCharacteristic: res.data[0]
     });
     console.log("secondCharacteristic:", this.data.secondCharacteristic)
     this.operation()
@@ -228,6 +146,19 @@ Page({
     }
   },
 
+  async startGetServices() {
+    let res = await sdBLEObj.getBLEDeviceServices(this.data.deviceId)
+    console.log("获取服务：", res)
+    this.customData.services = res.data
+    this.setData({
+      services: res.data,
+      firstServices: res.data[0]
+    })
+    console.log("所有服务:", this.data.services)
+    console.log("第一个服务:", this.data.services[0])
+    this.getCharacteristic()
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -250,7 +181,7 @@ Page({
       })
       sdBLEObj.startConnect(deviceId, deviceName)
       wx.hideLoading({
-        success: (res) => { },
+        success: (res) => {},
       })
     }
   },
@@ -260,28 +191,18 @@ Page({
    */
   onReady() {
     sdBLEObj.onBLECharacteristicValueChange((receiverValue) => {
-      // 判断所读取的特征值属于第一个服务还是第二个服务
-      if (receiverValue.characteristicId === this.data.firstcharacteristic.uuid) {
-                // 第二个服务的特征值变化回调 
-        // 假设接收到的数据格式为 "x y z"，各数值之间用空格隔开
-        // 下面的代码读取 receiverValue 数组中的前三个元素作为三个方向上的数据
-        let x = receiverValue.value[0];
-        let y = receiverValue.value[1];
-        let z = receiverValue.value[2];
-        console.log("第一个服务的特征值变化：", x, y, z);
-        // 将数值保留 2 位小数后转换成字符串并更新到页面
-        this.setData({
-          valueX: x.toFixed(2).toString(),
-          valueY: y.toFixed(2).toString(),
-          valueZ: z.toFixed(2).toString(),
-        });
-      } else if (receiverValue.characteristicId === this.data.secondCharacteristic.uuid) {
-                // 第二个服务的特征值变化回调
-                let data = new DataView(receiverValue.value);
-                let value = data.getUint8(0);
-                console.log("第二个服务的特征值变化：", value);
-                // do something...
-      }
+      // 假设接收到的数据格式为 "x y z"，各数值之间用空格隔开
+      // 下面的代码读取 receiverValue 数组中的前三个元素作为三个方向上的数据
+      let x = receiverValue[0];
+      let y = receiverValue[1];
+      let z = receiverValue[2];
+  
+      // 将数值保留 2 位小数后转换成字符串并更新到页面
+      this.setData({
+        valueX: x.toFixed(2).toString(),
+        valueY: y.toFixed(2).toString(),
+        valueZ: z.toFixed(2).toString(),
+      });
     });
   },
   
@@ -292,8 +213,127 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
+  onShow:function(){
+    new wxCharts({
+      canvasId: 'columnCanvas1',
+      type: 'column',
+      categories: ['前五日', '前四日', '前三日', '前两日', '昨天', '今天'],
+      series: [{
+            name: '前屈',
+            data: [30, 42, 55, 38, 45, 50],
+            color:'#83c162'
+        }],
+      yAxis: {
+          format: function (val) {
+              return val + '°';
+          },
+          max:90,
+      min:0
+      },
+      width: 350,
+      height: 170,
+      
+  });
+  new wxCharts({
+    canvasId: 'columnCanvas2',
+    type: 'column',
+    categories: ['前五日', '前四日', '前三日', '前两日', '昨天', '今天'],
+    series: [{
+        name: '后倾',
+        data: [30, 42, 55, 38, 45, 50],
+        color:'#83c162'
+    }],
+    yAxis: {
+        format: function (val) {
+            return val + '°';
+        },
+        max:90,
+      min:0
+    },
+    width: 350,
+    height: 170,
+    
+});
+new wxCharts({
+  canvasId: 'columnCanvas3',
+  type: 'column',
+  categories: ['前五日', '前四日', '前三日', '前两日', '昨天', '今天'],
+  series: [{
+      name: '左侧屈',
+      data: [30, 42, 55, 38, 45, 50],
+      color:'#83c162'
+  }],
+  yAxis: {
+      format: function (val) {
+          return val + '°';
+      },
+      max:90,
+      min:0
+  },
+  width: 350,
+  height: 170,
+  
+});
+new wxCharts({
+  canvasId: 'columnCanvas4',
+  type: 'column',
+  categories: ['前五日', '前四日', '前三日', '前两日', '昨天', '今天'],
+  series: [{
+      name: '右侧屈',
+      data: [30, 42, 55, 38, 45, 50],
+      color:'#83c162'
+  }],
+  yAxis: {
+      format: function (val) {
+          return val + '°';
+      },
+      max:90,
+      min:0
+  },
+  width: 350,
+  height: 170,
+  
+});
+new wxCharts({
+  canvasId: 'columnCanvas5',
+  type: 'column',
+  categories: ['前五日', '前四日', '前三日', '前两日', '昨天', '今天'],
+  series: [{
+      name: '左旋',
+      data: [30, 42, 55, 38, 45, 50],
+      color:'#83c162'
+  }],
+  yAxis: {
+      format: function (val) {
+          return val + '°';
+      },
+      max:90,
+      min:0
+  },
+  width: 350,
+  height: 170,
+  
+});
+new wxCharts({
+  canvasId: 'columnCanvas6',
+  type: 'column',
+  categories: ['前五日', '前四日', '前三日', '前两日', '昨天', '今天'],
+  series: [{
+      name: '右旋',
+      data: [30, 42, 55, 38, 45, 50],
+      color:'#83c162'
+  }],
+  yAxis: {
+      format: function (val) {
+          return val + '°';
+      },
+      max:90,
+      min:0
+  },
+  width: 350,
+  height: 170,
+  
+});
   },
 
   /**
@@ -501,4 +541,11 @@ Page({
       promise
     }
   },
+  naviMonitor(e){
+    //const _id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'lishi/lishi',
+     // url: 'lishi/lishi?id=' + _id
+    })
+  }
 })

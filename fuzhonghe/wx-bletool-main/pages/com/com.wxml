@@ -4,6 +4,8 @@
 <view class="com-container">
   <view class="com-header">
     <view class="com-header-item">
+    <text class="com-title" style="position: relative; left: -157rpx; top: 0rpx">近六日颈椎最大活动度:</text>
+      <!-- <image src="/images/fuzhonghua.png" class="logofu" style="position: relative; left: -282rpx; top: 11rpx"></image> -->
       <view class="blue-select" bindtap="onPop">
         <image src="/images/bt.png"></image>
         <view class="blue-select-item">
@@ -11,99 +13,32 @@
           <image src="/images/right.png"></image>
         </view>
       </view>
-      <view data-charge='10' class="battery" style="position: absolute; left: 33rpx; top: 29rpx; width: 71rpx; height: 36rpx; display: block; box-sizing: border-box">
+      <!-- <view data-charge='10' class="battery" style="position: absolute; left: 33rpx; top: 29rpx; width: 71rpx; height: 36rpx; display: block; box-sizing: border-box">
       </view>
       <view>
         <text class="shuzi" style="position: absolute; left: 50rpx; top: 31rpx; width: 50rpx; height: 54rpx; display: block; box-sizing: border-box">{{100}}</text>
-      </view>
-    </view>
-    <!-- <image src="/images/bluetooth.png" class="bluetooth"></image> -->
-    <!-- <view class="name"></view> -->
-  </view>
-</view>
-
-
-
-<!-- <view class="container">
-  <view class="header" style="width: 685rpx; height: 717rpx; display: block; box-sizing: border-box">
-    <view class="two">
-      <text>你最大活动度为</text>
-    </view>
-    <view class="wx-canvas">
-      <ec-canvas style=" width: 110%;height: 200rpx;" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ chartBar  }}"></ec-canvas>
-    </view>
-    <view class="wx-canvas">
-      <ec-canvas style=" width: 110%;height: 200rpx;" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ chartBar  }}"></ec-canvas>
-    </view>
-    <view class="wx-canvas">
-      <ec-canvas style=" width: 110%;height: 200rpx;" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ chartBar  }}"></ec-canvas>
-    </view>
-    <view class="wx-canvas">
-      <ec-canvas style=" width: 110%;height: 200rpx;" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ chartBar  }}"></ec-canvas>
-    </view>
-    <view class="wx-canvas">
-      <ec-canvas style=" width: 110%;height: 200rpx;" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ chartBar  }}"></ec-canvas>
-    </view>
-    <view class="wx-canvas">
-      <ec-canvas style=" width: 110%;height: 200rpx;" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ chartBar  }}"></ec-canvas>
-    </view>
-  </view>
-</view> -->
-
-<view class="container">
-  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
-</view>
-
-
-<view class="body" style="width: 750rpx; height: 647rpx; display: block; box-sizing: border-box">
-  <view class="body-wrapper" style="width: 750rpx; height: 582rpx; display: flex; box-sizing: border-box">
-    <view class="date" style="width: 230rpx; height: 493rpx; display: flex; box-sizing: border-box">
-      <view class="date-logo1" style="width: 104rpx; height: 392rpx; display: block; box-sizing: border-box">
-        <image src="/images/tt.png" style="position: relative; left: 75rpx; top: 37rpx"></image>
-      <image src="/images/dt.png" style="position: relative; left: 75rpx; top: 233rpx"></image>
-      </view>
-      <view class="date-text1" style="width: 154rpx; height: 218rpx; display: flex; box-sizing: border-box; position: relative; left: -52rpx; top: 110rpx">
-        <view class="date-title" style="position: relative; left: 25rpx; top: 25rpx; width: 93rpx; height: 44rpx; display: block; box-sizing: border-box">抬头</view>
-        <view class="date-value" style="width: 233rpx; height: 43rpx; display: flex; box-sizing: border-box; position: relative; left: 0rpx; top: 22rpx">{{valueY}}°</view>
-        <view class="date-title" style="position: relative; left: 25rpx; top: 12rpx; width: 93rpx; height: 44rpx; display: block; box-sizing: border-box">低头</view>
-      </view>
-    </view>
-    <view class="four">
-    <view class="date" style="width: 415rpx; height: 211rpx; display: flex; box-sizing: border-box">
-      <view class="date-logo2">
-        <image src="/images/znt.png" style="position: relative; left: 165rpx; top: -16rpx; width: 97rpx; height: 125rpx; display: block; box-sizing: border-box"></image>
-        <image src="/images/ynt.png" style="position: relative; left: 318rpx; top: -10rpx; width: 108rpx; height: 138rpx; display: block; box-sizing: border-box"></image>
-        <view class="date-value"  style="width: 181rpx; height: 211rpx; display: flex; box-sizing: border-box; position: relative; left: 37rpx; top: 0rpx">{{valueZ}}°</view>
-        <view class="date-title" style="position: relative; left: -220rpx; top: 86rpx; width: 107rpx; height: 88rpx; display: block; box-sizing: border-box">左扭头</view>
-        <view class="date-title" style="position: relative; left: -97rpx; top: 86rpx; width: 134rpx; height: 88rpx; display: block; box-sizing: border-box">右扭头</view>
-        
-        
-      </view>
-      
-    </view>
-    <view class="date" style="width: 415rpx; height: 211rpx; display: flex; box-sizing: border-box">
-      <view class="date-logo2" style="width: 392rpx; height: 211rpx; display: flex; box-sizing: border-box; position: relative; left: 0rpx; top: -26rpx">
-        <image src="/images/zwt.png" style="position: relative; left: 172rpx; top: 0rpx; width: 118rpx; height: 119rpx; display: block; box-sizing: border-box"></image>
-        <image src="/images/ywt.png" style="position: relative; left: 300rpx; top: 0rpx; width: 118rpx; height: 119rpx; display: block; box-sizing: border-box"></image>
-      </view>
-      <view class="date-text2" style="width: 465rpx; height: 83rpx; display: flex; box-sizing: border-box; left: -120rpx; top: -92rpx; position: relative">
-        <view class="date-value" style="width: 209rpx; height: 216rpx; display: flex; box-sizing: border-box; position: relative; left: 139rpx; top: 83rpx">{{valueX}}°</view>
-        <view class="date-title" style="position: relative; left: -118rpx; top: 232rpx; width: 141rpx; height: 50rpx; display: block; box-sizing: border-box">左歪头</view>
-        <view class="date-title" style="position: relative; left: -19rpx; top: 232rpx; width: 127rpx; height: 50rpx; display: block; box-sizing: border-box">右歪头</view>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>
+
+<canvas canvas-id="columnCanvas1" disable-scroll="true" class="canvas"></canvas>
+<canvas canvas-id="columnCanvas2" disable-scroll="true" class="canvas"></canvas>
+<canvas canvas-id="columnCanvas3" disable-scroll="true" class="canvas"></canvas>
+<canvas canvas-id="columnCanvas4" disable-scroll="true" class="canvas"></canvas>
+<canvas canvas-id="columnCanvas5" disable-scroll="true" class="canvas"></canvas>
+<canvas canvas-id="columnCanvas6" disable-scroll="true" class="canvas"></canvas>
+<text>{{valueY}}</text>
+<view class="date" style="width: 170rpx; height: 68rpx; display: flex; box-sizing: border-box; position: relative; left: 156rpx; top: 42rpx" bindtap="naviMonitor">
+<text class="date-text">历史数据</text></view>
+<view class="date" style="width: 170rpx; height: 68rpx; display: flex; box-sizing: border-box; position: relative; left: 426rpx; top: -26rpx">
+<text class="date-text">分享打卡</text>
 </view>
 
-<view class="content-item">
+<!-- <view class="content-item">
   <view class="text-left">第二个服务的数据：</view>
   <view class="text-right">{{ secondServiceData }}</view>
-</view>
-
-<view class="butt">
-  <button class="butt1" bindtap="onReset" style="width: 258rpx; height: 85rpx; display: block; box-sizing: border-box; left: 0rpx; top: 49rpx; position: relative">开始测量</button>
-</view>
+</view> -->
 
 
 <van-popup show="{{ showPop }}" round closeable position="bottom" custom-style="height: 60%;display:flex;flex-direction:column" bind:close="onClosePop">

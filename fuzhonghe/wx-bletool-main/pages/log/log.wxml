@@ -1,0 +1,69 @@
+
+<view style="width: 421rpx; height: 696rpx; display: block; box-sizing: border-box; position: relative; left: 166rpx; top: 156rpx">
+  <view style="width: 488rpx; height: 103rpx; display: block; box-sizing: border-box">
+  <text>您今天颈椎舒适度自我评价是:</text>
+  <text id="score" class="score" bindtap="showPicker"></text>
+</view>
+<!-- 模拟的底部弹窗 -->
+<view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
+<view class="modal-container {{showModal ? 'show' : ''}}">
+  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view>
+    <text> 分</text>
+  </picker>
+</view>
+<view>
+  <text style="position: relative; left: 0rpx; top: 7rpx">头昏评分:</text>
+  <text id="score" class="score" bindtap="showPicker"></text>
+</view>
+<!-- 模拟的底部弹窗 -->
+<view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
+<view class="modal-container {{showModal ? 'show' : ''}}">
+  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 184rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view>
+    <text> 分</text>
+  </picker>
+</view>
+<view>
+  <text style="position: relative; left: 0rpx; top: 7rpx">睡眠评分:</text>
+  <text id="score" class="score" bindtap="showPicker"></text>
+</view>
+<!-- 模拟的底部弹窗 -->
+<view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
+<view class="modal-container {{showModal ? 'show' : ''}}">
+  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view>
+    <text> 分</text>
+  </picker>
+</view>
+<view>
+  <text style="position: relative; left: 0rpx; top: 7rpx">干眼评分:</text>
+  <text id="score" class="score" bindtap="showPicker"></text>
+</view>
+<!-- 模拟的底部弹窗 -->
+<view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
+<view class="modal-container {{showModal ? 'show' : ''}}">
+  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view><text> 分</text>
+  </picker>
+</view>
+<view>
+  <text style="position: relative; left: 0rpx; top: 7rpx">耳鸣评分:</text>
+  <text id="score" class="score" bindtap="showPicker"></text>
+</view>
+<!-- 模拟的底部弹窗 -->
+<view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
+<view class="modal-container {{showModal ? 'show' : ''}}">
+  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view><text> 分</text>
+  </picker>
+</view>
+</view>
+<view>
+  <text style="position: relative; left: 71rpx; top: 200rpx">(满分10分，很舒服输入10，反之依次递减)</text>
+</view>
+<view class="date" style="width: 170rpx; height: 68rpx; display: flex; box-sizing: border-box; position: relative; left: 166rpx; top: 250rpx">
+<text class="date-text">历史数据</text></view>
+<view class="date" style="width: 170rpx; height: 68rpx; display: flex; box-sizing: border-box; position: relative; left: 416rpx; top: 120rpx">
+<text class="date-text">分享打卡</text>
+</view>

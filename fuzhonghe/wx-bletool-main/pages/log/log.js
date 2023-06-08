@@ -1,13 +1,25 @@
-// pages/home/index.js
 Page({
   data: {
-    currentIndex: 0
+    scoreRange: Array.from({ length: 10 }, (v, k) => k + 1),
+    selectedScoreIndex: 0,
+    showModal: false
   },
-
-  /* 这里实现控制中间凸显图片的样式 */
-  handleChange: function (e) {
+  showPicker: function() {
     this.setData({
-      currentIndex: e.detail.current
+      showModal: true
     })
   },
+  hidePicker: function() {
+    this.setData({
+      showModal: false
+    })
+  },
+  onPickerChange: function(e) {
+    var score = this.data.scoreRange[e.detail.value];
+    this.setData({
+      selectedScoreIndex: e.detail.value,
+      showModal: false
+    });
+    document.querySelector('#score').innerText = score;
+  }
 })

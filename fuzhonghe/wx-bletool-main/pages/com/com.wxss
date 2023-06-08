@@ -4,19 +4,6 @@
   background-color: #6b6b6b;
 }
 
-.wx-canvas {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
 .bbk{
   border: solid #424242 2rpx;
   padding-left: 30rpx;
@@ -297,9 +284,6 @@
 .four{
   display: inline;
 }
-.butt1{
-  font-size: 36rpx;
-}
 .header{
   background-color: #ffffff;
   color: black;
@@ -348,49 +332,31 @@
 .date{
   display: flex;
   justify-content: space-around;
-  background-color: #fff;
-  width: 300rpx;
-  height: 160rpx;
-  border-radius: 40rpx;
-  box-shadow: #424242 0 0 10rpx;
-  margin-top: 70rpx;
+  background-color: #f5f5f5;
+  width: 250rpx;
+  height: 140rpx;
+  border-radius: 20rpx;
+  box-shadow: #c4c4c4 0 0 10rpx;
 }
-.date-logo1{
-  display: inline;
-  justify-content: space-between;
+.date-text{
+  font-size: 28rpx;
+  margin-top: 12rpx;
 }
-.date-logo2{
-  display: flex;
-  align-items: center;
+.logofu{
+  height: 60rpx;
+  width: 155rpx;
 }
-.date-text1{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-.date-text2{
-  display: inline-flex;
-}
-.date-value{
-  font-size: 35rpx;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-}
-.date-title{
-  font-size: 30rpx;
+.canvas {
+  width: 100%;
+  height: 360rpx;
   margin-top: 10rpx;
-  margin-right: 20rpx;
 }
-.butt{
-  padding-top: 50rpx;
+.com-title{
+  font-size: 30rpx;
+  height: 50rpx;
+  margin-top: 20rpx;
 }
 
-ec-canvas {
-  width: 100%;
-  height: 100%;
-}
 
 
 

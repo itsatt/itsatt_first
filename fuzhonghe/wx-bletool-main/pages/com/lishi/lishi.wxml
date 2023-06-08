@@ -1,0 +1,8 @@
+<view class="table">
+  <view class="row" wx:for="{{rows}}" wx:key="index">
+    <view class="cell" wx:for="{{cols}}" wx:key="index" wx:if="{{index > 0}}">
+      <!-- 根据 index 和 data 判断单元格的背景颜色 -->
+      <view class="cell-content" style="background-color: {{data[index][rowIndex]}};"></view>
+    </view>
+  </view>
+</view>
