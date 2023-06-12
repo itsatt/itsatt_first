@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "@vant/weapp": "^1.10.18"
-  }
+  },
+  "name": "wx-bletool-main",
+  "description": "## 简介 小程序BLE蓝牙助手是一款蓝牙BLE调试工具，支持蓝牙BLE设备发现、服务发现、特征获取，数据读写等功能。",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

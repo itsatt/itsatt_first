@@ -2,67 +2,66 @@
 <view style="width: 421rpx; height: 696rpx; display: block; box-sizing: border-box; position: relative; left: 166rpx; top: 156rpx">
   <view style="width: 488rpx; height: 103rpx; display: block; box-sizing: border-box">
   <text>您今天颈椎舒适度自我评价是:</text>
-  <text id="score" class="score" bindtap="showPicker"></text>
+  <text id="score" class="score" bindtap="showPicker">{{todayScore}} </text>
 </view>
-<!-- 模拟的底部弹窗 -->
 <view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
 <view class="modal-container {{showModal ? 'show' : ''}}">
-  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
-    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view>
+  <picker mode="selector" range="{{scoreRange}}" value="{{todaySelectedIndex}}" bindchange="ontodayPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 184rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[todaySelectedIndex]}} </view>
     <text> 分</text>
   </picker>
 </view>
+<!-- 模拟的底部弹窗 -->
 <view>
   <text style="position: relative; left: 0rpx; top: 7rpx">头昏评分:</text>
-  <text id="score" class="score" bindtap="showPicker"></text>
+  <text id="score" class="score" bindtap="showPicker">{{headacheScore}} </text>
 </view>
-<!-- 模拟的底部弹窗 -->
 <view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
 <view class="modal-container {{showModal ? 'show' : ''}}">
-  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 184rpx; top: 0rpx">
-    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view>
+  <picker mode="selector" range="{{scoreRange}}" value="{{headacheSelectedIndex}}" bindchange="onHeadachePickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[headacheSelectedIndex]}} </view>
     <text> 分</text>
   </picker>
 </view>
+
 <view>
   <text style="position: relative; left: 0rpx; top: 7rpx">睡眠评分:</text>
-  <text id="score" class="score" bindtap="showPicker"></text>
+  <text id="score" class="score" bindtap="showPicker">{{sleepScore}} </text>
 </view>
-<!-- 模拟的底部弹窗 -->
 <view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
 <view class="modal-container {{showModal ? 'show' : ''}}">
-  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
-    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view>
+  <picker mode="selector" range="{{scoreRange}}" value="{{sleepSelectedIndex}}" bindchange="onSleepPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 184rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[sleepSelectedIndex]}} </view>
     <text> 分</text>
   </picker>
 </view>
+
 <view>
   <text style="position: relative; left: 0rpx; top: 7rpx">干眼评分:</text>
-  <text id="score" class="score" bindtap="showPicker"></text>
+  <text id="score" class="score" bindtap="showPicker">{{dryEyesScore}} </text>
 </view>
-<!-- 模拟的底部弹窗 -->
 <view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
 <view class="modal-container {{showModal ? 'show' : ''}}">
-  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
-    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view><text> 分</text>
+  <picker mode="selector" range="{{scoreRange}}" value="{{dryEyesSelectedIndex}}" bindchange="onDryEyesPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[dryEyesSelectedIndex]}} </view><text> 分</text>
   </picker>
 </view>
+
 <view>
   <text style="position: relative; left: 0rpx; top: 7rpx">耳鸣评分:</text>
-  <text id="score" class="score" bindtap="showPicker"></text>
+  <text id="score" class="score" bindtap="showPicker">{{tinnitusScore}} </text>
 </view>
-<!-- 模拟的底部弹窗 -->
 <view class="modal-mask {{showModal ? 'show' : ''}}" bindtap="hidePicker"></view>
 <view class="modal-container {{showModal ? 'show' : ''}}">
-  <picker mode="selector" range="{{scoreRange}}" value="{{selectedScoreIndex}}" bindchange="onPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
-    <view class="selector">{{scoreRange[selectedScoreIndex]}} </view><text> 分</text>
+  <picker mode="selector" range="{{scoreRange}}" value="{{tinnitusSelectedIndex}}" bindchange="onTinnitusPickerChange" style="width: 120rpx; height: 76rpx; display: block; box-sizing: border-box; position: relative; left: 182rpx; top: 0rpx">
+    <view class="selector">{{scoreRange[tinnitusSelectedIndex]}} </view><text> 分</text>
   </picker>
 </view>
 </view>
-<view>
-  <text style="position: relative; left: 71rpx; top: 200rpx">(满分10分，很舒服输入10，反之依次递减)</text>
+<view class="acc" style="position: relative; left: 1rpx; top: 234rpx">
+  <text>（输入0-10的数字，差得无法忍受输入10，最好0，中等5）</text>
 </view>
-<view class="date" style="width: 170rpx; height: 68rpx; display: flex; box-sizing: border-box; position: relative; left: 166rpx; top: 250rpx">
+<view class="date" style="width: 170rpx; height: 68rpx; display: flex; box-sizing: border-box; position: relative; left: 166rpx; top: 250rpx" bindtap="naviMonitor">
 <text class="date-text">历史数据</text></view>
 <view class="date" style="width: 170rpx; height: 68rpx; display: flex; box-sizing: border-box; position: relative; left: 416rpx; top: 120rpx">
 <text class="date-text">分享打卡</text>

@@ -6,7 +6,8 @@
     "pages/service/service",
     "pages/log/log",
     "pages/text/text",
-    "pages/com/lishi/lishi"
+    "pages/com/lishi/lishi",
+    "pages/log/loglishi/loglishi"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -20,3 +20,10 @@
   font-size: 28rpx;
   margin-top: 12rpx;
 }
+.acc{
+  width: 600rpx;
+  margin: 0 auto;
+}
+.acc text{
+  font-size: 23rpx;
+}

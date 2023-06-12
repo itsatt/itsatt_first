@@ -4,7 +4,7 @@
 <view class="com-container">
   <view class="com-header">
     <view class="com-header-item">
-    <text class="com-title" style="position: relative; left: -157rpx; top: 0rpx">近六日颈椎最大活动度:</text>
+    <text class="com-title" style="position: relative; left: -157rpx; top: 0rpx">近期颈椎最大活动度:</text>
       <!-- <image src="/images/fuzhonghua.png" class="logofu" style="position: relative; left: -282rpx; top: 11rpx"></image> -->
       <view class="blue-select" bindtap="onPop">
         <image src="/images/bt.png"></image>

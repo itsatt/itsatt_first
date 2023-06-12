@@ -13,12 +13,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    receiverText: '',
-    receiverLength: 0,
-    sendText: '',
-    sendLength: 0,
-    time: 1000,
-    timeSend: false,
     showPop: false,
     devs: [],
     deviceId: null,
@@ -49,13 +43,13 @@ Page({
           RSSI,
           deviceId,
         });
+
         that.setData({
           devs: that.customData._devs
         });
       });
     }
   },
-
   /**
    * 自定义数据
    */
@@ -89,6 +83,19 @@ Page({
       deviceName: data.deviceName,
     });
     this.startGetServices()
+  },
+
+  async startGetServices() {
+    let res = await sdBLEObj.getBLEDeviceServices(this.data.deviceId)
+    console.log("获取服务：", res)
+    this.customData.services = res.data
+    this.setData({
+      services: res.data,
+      firstServices: res.data[0]
+    })
+    console.log("所有服务:", this.data.services)
+    console.log("第一个服务:", this.data.services[0])
+    this.getCharacteristic()
   },
 
   getCharacteristic() {
@@ -145,19 +152,7 @@ Page({
       })
     }
   },
-
-  async startGetServices() {
-    let res = await sdBLEObj.getBLEDeviceServices(this.data.deviceId)
-    console.log("获取服务：", res)
-    this.customData.services = res.data
-    this.setData({
-      services: res.data,
-      firstServices: res.data[0]
-    })
-    console.log("所有服务:", this.data.services)
-    console.log("第一个服务:", this.data.services[0])
-    this.getCharacteristic()
-  },
+  
 
   /**
    * 生命周期函数--监听页面加载
@@ -190,6 +185,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
+    const that=this
     sdBLEObj.onBLECharacteristicValueChange((receiverValue) => {
       // 假设接收到的数据格式为 "x y z"，各数值之间用空格隔开
       // 下面的代码读取 receiverValue 数组中的前三个元素作为三个方向上的数据
@@ -202,6 +198,11 @@ Page({
         valueX: x.toFixed(2).toString(),
         valueY: y.toFixed(2).toString(),
         valueZ: z.toFixed(2).toString(),
+      });
+      that.setData({
+        historyvalueX: that.data.historyvalueX + ' ' + valueX,
+        historyvalueY: that.data.historyvalueY + ' ' + valueY,
+        historyvalueZ: that.data.historyvalueZ + ' ' + valueZ
       });
     });
   },
